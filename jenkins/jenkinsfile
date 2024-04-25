@@ -22,7 +22,7 @@ pipeline
                 script
                 {
                     fichero0 = directorio + "num0.txt"
-                    num_txt[] = readFile(file: fichero0)
+                    num_txt = readFile(file: fichero0)
                     num10 = num_txt[1].toInteger()
                     num20 = num_txt[2].toInteger()
                     println "num10: ${num10}"
