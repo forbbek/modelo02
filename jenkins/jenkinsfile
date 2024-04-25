@@ -1,0 +1,70 @@
+import java.text.SimpleDateFormat
+
+pipeline
+{
+    agent any
+    options
+    {
+        timeout(time:10, unit: 'MINUTES')
+    }
+    
+    environment
+    {
+        directorio = "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\Modelo_02\\"
+    }
+    
+    stages
+    {
+        stage("Operacion aritmetica")
+        {
+            steps
+            {
+                script
+                {
+                    def resultado = suma(5,10)
+                    fichero1 = directorio + "num1.txt"
+                    num1 = readFile(file: fichero1)
+                    println "num1: ${num1}"
+                    salida = "num1: ${num1}"
+                    fichero2 = directorio + "num2.txt"
+                    num2 = readFile(file: fichero2)
+                    println "num2: ${num2}"
+                    salida = salida + " num2: ${num2}"
+                    suma = num1 + num2
+                    salida = salida + " suma = num1 + num2: ${suma}"
+                    resta = num2 - num1
+                    salida = salida + " resta = num2 - num1: ${resta}"
+                    mult = num1 * num2
+                    salida = salida + " multiplicacion = num1 * num2: ${mult}"
+                    div = num2 / num1
+                    salida = salida + " division = num2 / num1: ${div}"
+                    archivo_nombre = directorio + "salida.txt"
+                    writeFile(file: archivo_nombre, text: informacion)
+                }
+            }
+        }
+
+    }
+    
+    post
+    {
+        always
+        {
+           script
+           {
+             def time = new Date()
+            echo 'El pipeline se ejecuto '  +time
+           }
+        }
+        
+        success
+        {
+            echo 'Se ejecuto de forma correcta'
+        }
+        
+        failure
+        {
+            echo 'El pipeline fallo'
+        }
+    }
+}
