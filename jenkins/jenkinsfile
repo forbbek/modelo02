@@ -55,7 +55,7 @@ pipeline
                     }
 
                     archivo_nombre = directorio + "salida.txt"
-                    writeFile(file: archivo_nombre, text: informacion)
+                    writeFile(file: archivo_nombre, text: salida)
                 }
             }
         }
