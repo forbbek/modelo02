@@ -22,11 +22,13 @@ pipeline
                 script
                 {
                     fichero1 = directorio + "num1.txt"
-                    num1 = readFile(file: fichero1)
+                    num1_txt = readFile(file: fichero1)
+                    num1 = num1_txt.toInteger()
                     println "num1: ${num1}"
                     salida = "num1: ${num1}"
                     fichero2 = directorio + "num2.txt"
-                    num2 = readFile(file: fichero2)
+                    num2_txt = readFile(file: fichero2)
+                    num2 = num2_txt.toInteger()
                     salida = salida + " num2: ${num2}"
                     println "num2: ${num2}"
 
