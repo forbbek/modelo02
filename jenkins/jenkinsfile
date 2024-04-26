@@ -24,7 +24,7 @@ pipeline
                     
                     fichero0 = directorio + "num0.txt"
                     def whole_file_data = readFile(file: fichero0)
-                    integer i=0
+                    i=0.toInteger()
                     String[] arr = new String[2]
                     whole_file_data.eachLine { String line ->
                         println("line:${line}")
