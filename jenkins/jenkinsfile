@@ -25,14 +25,14 @@ pipeline
                     fichero0 = directorio + "num0.txt"
                     def whole_file_data = readFile(file: fichero0)
                     i=0.toInteger()
-                    Integer[] arr = new Integer[2]
-                    //whole_file_data.eachLine { String line ->
-                    whole_file_data.eachLine { line ->
+                    String[] linea = new String[2]
+                    whole_file_data.eachLine { String line ->
                         println("line:${line}")
                         //def num = line.tokenize()
                         //println("num: ${num}")
-                        arr[i] = line
-                        println("arr${i}: ${arr[i]}")
+                        linea[i] = line
+                        echo "linea informado"
+                        println("linea${i}: ${linea[i]}")
                         i = i +1
                     }
 
